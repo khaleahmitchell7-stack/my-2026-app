@@ -126,3 +126,15 @@ with col_book2:
 if bmym_chapters == 32 or stars_chapters == 35:
     st.balloons()
     st.success("You finished a 2026 favorite! Your reading goal is on fire. 🔥")
+# --- NEW SECTION: 2026 Focus Sounds ---
+st.divider()
+st.subheader("🎵 Khaleah's Focus Station")
+
+# This is a "Lofi / Study" playlist, perfect for reading or crocheting
+# To change it, just replace the link inside the quotes with your own Spotify 'Embed' link!
+spotify_link = <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7MqpDEg462bYKLGLCJ6pwB?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+"https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExYv?utm_source=generator"
+
+st.components.v1.iframe(spotify_link, height=352, scrolling=False)
+
+st.caption("💡 Tip: You can swap this for any Spotify playlist you love!")
