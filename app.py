@@ -134,5 +134,29 @@ st.subheader("🎵 Khaleah's Focus Station")
 spotify_link = "https://open.spotify.com/embed/playlist/37i9dQZF1EVHGWrwldPRtj?utm_source=generator"
 
 st.components.v1.iframe(spotify_link, height=352, scrolling=False)
+# --- NEW SECTION: 2026 No-Spend Challenge ---
+st.divider()
+st.subheader("🗓️ March No-Spend Tracker")
+st.write("Mark off each day you stuck to your budget!")
+
+# Create a grid of 7 columns (like a real calendar)
+days = list(range(1, 32)) # March has 31 days
+cols = st.columns(7)
+
+checked_days = 0
+for i, day in enumerate(days):
+    # This puts each day in a different column
+    with cols[i % 7]:
+        if st.checkbox(f"{day}", key=f"day_{day}"):
+            checked_days += 1
+
+# Calculate your success rate
+success_rate = round((checked_days / 31) * 100)
+st.metric("Monthly Success Rate", f"{success_rate}%")
+
+if success_rate >= 80:
+    st.success("You're a budgeting pro! Your wealth gap is growing. 💰")
+elif checked_days > 0:
+    st.info(f"You've had {checked_days} successful no-spend days so far. Keep it up!")
 
 st.caption("🎧 Now playing your custom 2026 playlist!")
