@@ -100,3 +100,29 @@ if password == "crochet2026":
 
 elif password != "":
     st.error("Access Denied. Incorrect key.") 
+# --- CORRECTED SECTION: 2026 Reading Challenge ---
+st.divider()
+st.subheader("📚 2026 Reading List")
+
+col_book1, col_book2 = st.columns(2)
+
+with col_book1:
+    st.markdown("#### *Bring Me Your Midnight*")
+    # This book has 32 chapters
+    bmym_chapters = st.slider("Chapters read (Midnight):", 0, 32, 5)
+    bmym_progress = (bmym_chapters / 32)
+    st.progress(bmym_progress)
+    st.write(f"🌙 {int(bmym_progress * 100)}% Complete")
+
+with col_book2:
+    st.markdown("#### *Swimming in a Sea of Stars*")
+    # This book has 35 chapters
+    stars_chapters = st.slider("Chapters read (Sea of Stars):", 0, 35, 10)
+    stars_progress = (stars_chapters / 35)
+    st.progress(stars_progress)
+    st.write(f"⭐ {int(stars_progress * 100)}% Complete")
+
+# Celebration for finishing!
+if bmym_chapters == 32 or stars_chapters == 35:
+    st.balloons()
+    st.success("You finished a 2026 favorite! Your reading goal is on fire. 🔥")
