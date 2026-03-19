@@ -77,3 +77,26 @@ if st.button("Choose My Next Task"):
     
     st.balloons()
     st.info(f"The Universe (and Python) says you should: **{choice}**")
+   # --- NEW SECTION: The Secret Vault ---
+st.divider()
+st.subheader("🔐 Khaleah's Secret Vault")
+
+# Create a password input (it hides the text you type)
+password = st.text_input("Enter your Secret Key to unlock:", type="password")
+
+# Pick a secret key (I used 'crochet2026', but you can change it!)
+if password == "crochet2026":
+    st.success("Access Granted! Welcome back, Khaleah.")
+    
+    # Everything inside this 'if' block is HIDDEN until the password is right
+    st.markdown("### 📝 Private Journal & Reflection")
+    
+    # A place to log your "Active Listening" or "Negotiation" wins
+    entry = st.text_area("What did you learn today?")
+    if st.button("Save Entry"):
+        st.write("Entry saved to your session! (Next step: learning databases!)")
+        
+    st.info("💡 Tip: Only you can see this section because only you know the key.")
+
+elif password != "":
+    st.error("Access Denied. Incorrect key.") 
