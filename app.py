@@ -160,3 +160,25 @@ elif checked_days > 0:
     st.info(f"You've had {checked_days} successful no-spend days so far. Keep it up!")
 
 st.caption("🎧 Now playing your custom 2026 playlist!")
+# --- NEW SECTION: Export My Progress ---
+st.divider()
+st.subheader("📊 Export 2026 Data")
+
+# Collect all the days you checked in the calendar above
+checked_list = [d for d in days if st.session_state.get(f"day_{d}")]
+
+if checked_list:
+    # Create a simple text string of your successful days
+    report_text = f"Khaleah's No-Spend Report - March 2026\n"
+    report_text += f"Total Successful Days: {len(checked_list)}\n"
+    report_text += f"Days: {', '.join(map(str, checked_list))}"
+    
+    # The magic Download Button
+    st.download_button(
+        label="Download My No-Spend Report",
+        data=report_text,
+        file_name="khaleah_budget_report.txt",
+        mime="text/plain"
+    )
+else:
+    st.write("Check some days in your calendar to enable the download button!")
